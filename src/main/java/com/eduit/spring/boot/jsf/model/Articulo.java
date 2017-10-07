@@ -2,6 +2,7 @@ package com.eduit.spring.boot.jsf.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 
 @Entity
@@ -23,15 +24,19 @@ public class Articulo implements Serializable {
     private Float precio;
     @Column(name = "cantidad")
     private Integer cantidad;
+    @Column(name = "fecha")
+    private Date fecha;
 
-
-    public Articulo(String nombre, String presentacion, Float precio, Integer cantidad) {
-        super();
+    public Articulo(String nombre, String presentacion, Float precio, Integer cantidad, Date fecha) {
         this.nombre = nombre;
         this.presentacion = presentacion;
         this.precio = precio;
         this.cantidad = cantidad;
+        this.fecha = fecha;
     }
+
+
+    
 
     public Articulo() {
         super();
@@ -80,5 +85,14 @@ public class Articulo implements Serializable {
     public void setPrecio(Float precio) {
         this.precio = precio;
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+   
 
 }

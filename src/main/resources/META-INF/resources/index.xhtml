@@ -9,7 +9,8 @@
 	<title>Hello Spring Boot with JSF</title>	
 </h:head>
 <h:body>
-	<h:form id="frm">
+	
+    <h:form id="frm">
 
 		<p:panel header="Carga de Articulos">
 					nombre: <p:inputText value="#{articuloBean.articulo.nombre}"/><br/>
@@ -23,6 +24,9 @@
 							    	<f:convertNumber/>
 								 </p:inputText>
 								 <p:message for="cantidad"/><br/>
+                                        fecha :   <p:calendar id="button" value="#{articuloBean.articulo.fecha}" showOn="button" />
+                                        
+                                        
 					<p:commandButton update="@form" value="guardar" action="#{articuloBean.save()}"/>
 			        <p:commandButton update="frm:pnlLista" value="listar" action="#{articuloBean.list()}"/>
 		</p:panel>
@@ -47,6 +51,10 @@
 
 				<p:column headerText="presentacion">
 					<h:outputText value="#{articulo.presentacion}" />
+				</p:column>
+                                
+                                <p:column headerText="fecha">
+					<h:outputText value="#{articulo.fecha}" />
 				</p:column>
 
 				<p:column headerText="accciones">
